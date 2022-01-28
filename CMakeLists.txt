@@ -85,6 +85,7 @@ if(DIFFVG_CUDA)
         PROPERTIES CUDA_SOURCE_PROPERTY_FORMAT OBJ)
 
     cuda_add_library(diffvg MODULE ${SRCS})
+    string(APPEND CMAKE_CUDA_FLAGS " -gencode arch=compute_70,code=sm_70")
 else()
     add_library(diffvg MODULE ${SRCS})
 endif()
